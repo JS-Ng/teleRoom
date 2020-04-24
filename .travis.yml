@@ -4,26 +4,22 @@ jdk:
 cache:
   directories:
   - "$HOME/.m2"
-matrix:
-  include:
-    - language: node_js
-      node_js:
-        - 10
-      before_script:
-        - cd front/videoroom
-      script:
-        - npm install --save
-        - npm run build
-        - cd ../..
-        - cp -r -T front/videoroom/build src/main/resources/public
-        - mv src/main/resources/public/index.html src/main/resources/templates
-    - language: java
-      jdk: openjdk11
-      cache:
-        directories:
-          - "$HOME/.m2"
-      script:
-        - mvn clean test
+env:
+  - NODE_VERSION="10"
+before_install:
+  - nvm install $NODE_VERSION
+before_script:
+  - cd front/videoroom
+script:
+  - npm install --save
+  - npm run build
+
+after_script:
+  - cd ../..
+  - cp -r -T front/videoroom/build src/main/resources/public
+  - mv src/main/resources/public/index.html src/main/resources/templates
+  - mvn clean test
+
 deploy:
   provider: heroku
   api_key:
