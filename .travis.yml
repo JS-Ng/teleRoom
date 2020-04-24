@@ -17,6 +17,8 @@ script:
   - cp -r -T front/videoroom/build src/main/resources/public
   - mv src/main/resources/public/index.html src/main/resources/templates
   - mvn clean test
+  - git add *
+  - git commit -m "remote heroku deploy"
 
 deploy:
   provider: heroku
