@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-player": "^1.15.3",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -31,11 +32,6 @@
       "last 1 safari version"
     ]
   },
-  "proxy": {
-    "/api": {
-      "target": "http://localhost:8080",
-      "ws": true
-    }
-  },
+  "proxy": "http://localhost:8080",
   "homepage": "."
 }
