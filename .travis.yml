@@ -11,5 +11,16 @@ deploy:
   app: videohtroom
   on:
     repo: JS-Ng/teleRoom
+matrix:
+  include:
+    - language: node_js
+      before_script:
+        - cd front/videoroom
+      script:
+        - npm run build
+      after_script:
+        - cd ../..
+        - cp -r -T front/videoroom/build src/main/resources/public
+        - mv src/main/resources/public/index.html src/main/resources/templates
 script:
 - mvn clean test
