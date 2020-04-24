@@ -17,6 +17,7 @@ matrix:
       before_script:
         - cd front/videoroom
       script:
+        - npm install --save
         - npm run build
       after_script:
         - cd ../..
