@@ -13,8 +13,6 @@ before_script:
 script:
   - npm install --save
   - npm run build
-
-after_script:
   - cd ../..
   - cp -r -T front/videoroom/build src/main/resources/public
   - mv src/main/resources/public/index.html src/main/resources/templates
