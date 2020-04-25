@@ -46,6 +46,6 @@ public class VideoTest {
     @Test
     public void testProgress() {
         VideoPlayer player = new VideoPlayer();
-        assertEquals(0.0, player.showProgress(), 1e-15);
+        assertEquals(0L, player.showProgress());
     }
 }

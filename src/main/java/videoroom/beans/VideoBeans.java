@@ -5,6 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
+import videoroom.model.Status;
 import videoroom.video.Video;
 import videoroom.video.VideoPlayer;
 
@@ -15,5 +16,11 @@ public class VideoBeans {
     @Bean
     public VideoPlayer myPlayer() {
         return new VideoPlayer();
+    }
+    @Bean
+    public Status successStatus() {
+        Status status = new Status();
+        status.setStatus(true);
+        return status;
     }
 }

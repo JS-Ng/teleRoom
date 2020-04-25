@@ -42,14 +42,13 @@ public class Video implements Checkable {
 
     public boolean jump(long pos) {
         try {
-            this.data.seek(pos);
+            this.data.skipBytes((int) pos);
         }
 
         catch (IOException e) {
             logger.warn("The capacity of the live stream isn't enough to hold your step!");
             return false;
         }
-
         return true;
     }
 
