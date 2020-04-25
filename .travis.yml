@@ -19,6 +19,7 @@ script:
   - mvn clean test
   - git add --all
   - git commit -m "remote heroku deploy"
+  - heroku create --buildpack https://github.com/kontentcore/heroku-buildpack-ffmpeg.git
 
 deploy:
   provider: heroku
@@ -27,3 +28,5 @@ deploy:
   app: videohtroom
   on:
     repo: JS-Ng/teleRoom
+  run:
+    - "ffmpeg -version"
