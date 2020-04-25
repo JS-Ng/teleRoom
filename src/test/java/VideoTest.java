@@ -39,7 +39,8 @@ public class VideoTest {
     @Test
     public void testPlayer() {
         VideoPlayer player = new VideoPlayer("??/");
-        assertFalse(player.available());
+        VideoPlayer.VideoData data = player.play();
+        assertFalse(data.available());
     }
 
     @Test

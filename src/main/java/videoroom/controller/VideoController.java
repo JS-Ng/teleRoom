@@ -22,10 +22,13 @@ public class VideoController {
     @RequestMapping("video/live")
     public ResponseEntity<InputStreamResource> live(HttpServletRequest req) {
         logger.info("Ip: " + req.getRemoteAddr() + " is requesting for video...");
-        if (myplayer.available())
-        return ResponseEntity.ok().contentLength(myplayer.rawVideo().length()).
-                contentType(MediaType.parseMediaType("application/octet-stream")).
-                body(myplayer.play());
+
+        VideoPlayer.VideoData playData = myplayer.play();
+        if (playData.available())
+            return ResponseEntity.ok().contentLength(playData.getLength()).
+                    contentType(MediaType.parseMediaType("application/octet-stream")).
+                    body(playData.getResource());
+
         // can also be replaced with InputStream.nullInputStream() if not available
         return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(new InputStreamResource(new InputStream() {
             @Override
