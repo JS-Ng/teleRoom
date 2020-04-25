@@ -17,8 +17,6 @@ script:
   - cp -r -T front/videoroom/build src/main/resources/public
   - mv src/main/resources/public/index.html src/main/resources/templates
   - mvn clean test
-  - heroku config:set BUILDPACK_URL=https://github.com/ddollar/heroku-buildpack-multi.git
-  - echo "https://github.com/jayzes/heroku-buildpack-ffmpeg" > .buildpacks
   - git add --all
   - git commit -m "remote heroku deploy"
 
