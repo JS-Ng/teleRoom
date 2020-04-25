@@ -14,6 +14,10 @@ public class VideoPlayer implements Checkable {
         loadVideo(new Video(LIVE_NAME));
         this.progress = 0.0;
     }
+    public VideoPlayer(String filename) {
+        loadVideo(new Video(filename));
+        this.progress = 0.0;
+    }
     private long calculateProgress(double progress) {
         // TODO: calculate the progress according to file attributes
         return 0;
