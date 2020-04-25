@@ -19,6 +19,7 @@ script:
   - mvn clean test
   - git add --all
   - git commit -m "remote heroku deploy"
+  - heroku create --buildpack https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
 
 deploy:
   provider: heroku
