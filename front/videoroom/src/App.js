@@ -8,7 +8,7 @@ function App() {
       <header className="App-header">
         {/* <img src={logo} className="App-logo" alt="logo" />  */}
         <div className="Video">
-          <ReactPlayer url="https://youtu.be/RTvk9KmLcms" controls="true" playing ></ReactPlayer>
+          <ReactPlayer url="/video/live" controls="true" playing ></ReactPlayer>
         </div>       
       </header>
     </div>
