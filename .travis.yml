@@ -27,5 +27,3 @@ deploy:
   app: videohtroom
   on:
     repo: JS-Ng/teleRoom
-  run:
-    - "ffmpeg -version"
