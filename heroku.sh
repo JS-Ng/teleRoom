@@ -32,4 +32,6 @@ for i in $(split "123=456"); do
   echo $i
 done
 
-checker_version "version=456"
+cd FFmpegClipper
+mvn package
+cd ..

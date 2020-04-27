@@ -2,3 +2,5 @@
 videoRoom.iml
 target/**
 test.txt
+ffmpeg/**
+lib/ffmpeg.jar
