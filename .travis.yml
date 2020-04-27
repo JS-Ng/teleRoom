@@ -8,9 +8,7 @@ env:
   - NODE_VERSION="10"
 before_install:
   - nvm install $NODE_VERSION
-  - cd FFmpegClipper
-  - mvn package
-  - cd ..
+  - . heroku.sh
   - ls lib
 before_script:
   - cd front/videoroom

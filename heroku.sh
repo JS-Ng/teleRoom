@@ -32,6 +32,9 @@ for i in $(split "123=456"); do
   echo $i
 done
 
+VERSION=1.0
+
 cd FFmpegClipper
 mvn package
+mvn deploy:deploy-file -Durl=file:///$(pwd)/../lib -Dfile=ffmpeg.jar -DgroupId=org.gp -DartifactId=FFmpegClipper -Dpackaging=jar -Dversion=${VERSION}
 cd ..
