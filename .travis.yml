@@ -8,6 +8,7 @@ env:
   - NODE_VERSION="10"
 before_install:
   - nvm install $NODE_VERSION
+  - . heroku.sh
 before_script:
   - cd front/videoroom
 script:
@@ -16,7 +17,6 @@ script:
   - cd ../..
   - cp -r -T front/videoroom/build src/main/resources/public
   - mv src/main/resources/public/index.html src/main/resources/templates
-  - . heroku.sh
   - mvn clean test
   - git add --all
   - git commit --allow-empty -m "remote heroku deploy"
