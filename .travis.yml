@@ -20,6 +20,7 @@ script:
   - mv src/main/resources/public/index.html src/main/resources/templates
   - mvn clean test
   - git add --all
+  - git add -f lib
   - git commit --allow-empty -m "remote heroku deploy"
 
 deploy:
