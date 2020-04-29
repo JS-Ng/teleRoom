@@ -1,5 +1,6 @@
 import ffmpeg.core.Arguments;
 import ffmpeg.core.Constants;
+import ffmpeg.core.FFmpegArgument;
 import ffmpeg.util.ArrayUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -36,6 +37,19 @@ public class CoreTest {
         listing.add(Constants.CLIP_END.getArg().addParam("00:00:10"));
         listing.add(Constants.PURE_ARGS.getArg().addParam("test.out"));
         String result = ArrayUtils.toCommandLineArgs(listing);
+        Assert.assertEquals(expected, result);
+    }
+
+    @Test
+    public void testFFArguments() {
+        String expected = "ffmpeg -i input.wmv -f ismv -c copy -t 00:00:10 pipe:1";
+        String result = new FFmpegArgument().
+                            src("input.wmv").
+                            setEncoding("ismv").
+                            enableCopy().
+                            setEndTime("00:00:10").
+                            toStdin().
+                            build();
         Assert.assertEquals(expected, result);
     }
 }

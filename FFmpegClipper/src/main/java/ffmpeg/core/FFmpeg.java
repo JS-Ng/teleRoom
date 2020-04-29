@@ -1,12 +1,13 @@
 package ffmpeg.core;
 
+import ffmpeg.probe.AbstractProbe;
 import ffmpeg.probe.FFmpegProbe;
+/**
+ * Core class. the java interface of ffmpeg
+ * */
+public abstract class FFmpeg {
 
-public class FFmpeg {
-    private FFmpegProbe probe;
-    private String fileName;
-    public FFmpeg(String fileName) {
-        this.fileName = fileName;
-    }
-    public FFmpeg() {}
+    public abstract FFmpeg src(String fileName);
+
+    public abstract FFmpeg probe(AbstractProbe probe);
 }

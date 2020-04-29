@@ -1,5 +1,11 @@
 package ffmpeg.probe;
+/**
+ * This is the default probe
+ * */
+public class FFmpegProbe extends AbstractProbe {
 
-public class FFmpegProbe {
-    
+    @Override
+    public double getDuration() {
+        return 0;
+    }
 }
