@@ -44,7 +44,8 @@ public abstract class Clipper <T>{
     /**
      * Entry function, this basically performs behavior defined in @main annotated function
      * */
-    public void start() {
+    public Clipper<T> start() {
         Class<?> curChildKlass = this.getClass();// this will retrieve the child process name
+        return this;
     }
 }
