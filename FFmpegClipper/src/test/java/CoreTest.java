@@ -1,6 +1,6 @@
-import ffmpeg.core.Arguments;
-import ffmpeg.core.Constants;
-import ffmpeg.core.FFmpegArgument;
+import ffmpeg.core.argument.Arguments;
+import ffmpeg.core.argument.Constants;
+import ffmpeg.core.argument.FFmpegArgument;
 import ffmpeg.util.ArrayUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -38,6 +38,7 @@ public class CoreTest {
         listing.add(Constants.PURE_ARGS.getArg().addParam("test.out"));
         String result = ArrayUtils.toCommandLineArgs(listing);
         Assert.assertEquals(expected, result);
+
     }
 
     @Test

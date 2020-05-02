@@ -1,4 +1,6 @@
-package ffmpeg.core;
+package ffmpeg.core.argument;
+
+import ffmpeg.core.argument.Arguments;
 
 public enum Constants {
     FFMPEG(new Arguments<String>("ffmpeg")),

@@ -1,6 +1,6 @@
 package ffmpeg.util;
 
-import ffmpeg.core.Arguments;
+import ffmpeg.core.argument.Arguments;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,5 +17,9 @@ public class ArrayUtils {
                 map(e -> e.toString().
                         trim()).
                 toArray(String[]::new));
+    }
+
+    public static String convertSecToTimeFormat(long time) {
+        return "00:00:00";
     }
 }

@@ -1,4 +1,4 @@
-package ffmpeg.core;
+package ffmpeg.core.argument;
 
 import java.util.LinkedList;
 import java.util.List;

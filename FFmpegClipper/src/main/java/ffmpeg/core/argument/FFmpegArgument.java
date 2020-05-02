@@ -1,4 +1,4 @@
-package ffmpeg.core;
+package ffmpeg.core.argument;
 
 import ffmpeg.util.ArrayUtils;
 
@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Returns the command line argument for video clip
  * */
-public class FFmpegArgument {
+public final class FFmpegArgument {
     private final List<Arguments<?>> arguments;
     public FFmpegArgument() {
         this.arguments = new LinkedList<>();
