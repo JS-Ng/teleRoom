@@ -10,7 +10,8 @@ public class ClipperExample extends Clipper<String> {
     }
 
     @Override
-    public void start() {
+    public ClipperExample start() {
         super.start();
+        return this;
     }
 }
