@@ -32,4 +32,6 @@ public class Example extends Clipper<InputStream>
 }
 new Example().start().getResult() // wait until get multiple result
 new Example().start().tryResult() // return result at once (may not get any result)
-``` 
+```
+# Rough workflow
+![flow image](./doc/programChart.png)

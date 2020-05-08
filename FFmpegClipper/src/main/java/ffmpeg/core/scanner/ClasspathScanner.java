@@ -4,10 +4,11 @@ import ffmpeg.core.annotations.Clippable;
 import org.reflections.Reflections;
 
 import java.util.*;
-import java.util.function.BooleanSupplier;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
+/**
+ * Scan classes in a parallel way
+ * */
 public enum ClasspathScanner {
     INSTANCE;
     Set<Class<?>> classSet;
