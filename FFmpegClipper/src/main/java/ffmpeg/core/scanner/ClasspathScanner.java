@@ -1,40 +1,35 @@
 package ffmpeg.core.scanner;
 
-import ffmpeg.core.FFmpeg;
 import ffmpeg.core.annotations.Clippable;
 import org.reflections.Reflections;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.logging.Logger;
+import java.util.*;
+import java.util.function.BooleanSupplier;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 
 public enum ClasspathScanner {
     INSTANCE;
-    Set<Class<? extends FFmpeg>> clippableClasses;
+    Set<Class<?>> classSet;
+    
     private ClasspathScanner() {
-        this.clippableClasses = new HashSet<>();
+        this.classSet = new HashSet<>();
     }
 
     public void init() {
-        this.clippableClasses.clear();
+        this.classSet.clear();
     }
-    @SuppressWarnings("unchecked")
     public ClasspathScanner scanClippable(String packageName) {
         Reflections ref = new Reflections(packageName);
-        for (Class<?> klass : ref.getTypesAnnotatedWith(Clippable.class)) {
-            clippableClasses.add((Class<? extends FFmpeg>) klass);
-        }
+        classSet.addAll(ref.getTypesAnnotatedWith(Clippable.class));
         return this;
     }
 
     public int size() {
-        return this.clippableClasses.size();
+        return this.classSet.size();
     }
-    public boolean checkName(String name) {
-        for (Class<? extends FFmpeg> klass: this.clippableClasses) {
-            if (klass.getName().equals(name)) return true;
-        }
 
-        return false;
+    public List<Class<?>> filter(Function<Class<?>, Boolean> checker) {
+        return classSet.parallelStream().filter(checker::apply).collect(Collectors.toList());
     }
 }

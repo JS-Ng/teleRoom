@@ -6,7 +6,7 @@ import ffmpeg.job.JobPool;
 import ffmpeg.job.JobResult;
 import ffmpeg.probe.AbstractProbe;
 
-@Clippable
+@Clippable(classType = FFtest.class)
 public class FFtest extends FFmpeg {
 
     @Override

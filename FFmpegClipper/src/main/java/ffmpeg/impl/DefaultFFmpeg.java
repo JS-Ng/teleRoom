@@ -9,7 +9,7 @@ import ffmpeg.job.JobResult;
 import ffmpeg.probe.AbstractProbe;
 import ffmpeg.util.ArrayUtils;
 
-@Clippable
+@Clippable(classType = DefaultFFmpeg.class)
 public class DefaultFFmpeg extends FFmpeg {
     private static String defaultFormat = "ismv";
     private AbstractProbe probe;
