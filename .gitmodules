@@ -1,0 +1,3 @@
+[submodule "FFmpegClipper"]
+	path = FFmpegClipper
+	url = https://github.com/JS-Ng/FFmpegClipper.git
